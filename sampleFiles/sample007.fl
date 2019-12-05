@@ -1,0 +1,69 @@
+program sample007;
+
+(* 
+  ignoring
+  multi-line
+  comments 
+*)
+
+// ignoring
+// single-line
+// comments
+
+var i:  integer;
+    ai: array[1][2] of integer; 
+    isPrime: boolean;
+
+function square(i: integer): integer;
+
+begin
+    result := i * i;
+    return
+end;
+
+
+begin
+
+	i := 10;
+  isPrime := true;
+
+	while isPrime do 
+    begin
+
+      i +:= 1;
+      ai[0][i mod 2] := i;  //ai[0][1] == 11 , ai[0][0] == 12
+      
+      if i >= 12 then
+        isPrime := false
+
+    end;
+
+    if ai[0][0] < ai[0][1] then       // false
+        begin
+          result := square(ai[0][0]); // 12^2 = 144
+          goto flag_neq
+        end
+    else if ai[0][1] < ai[0][0] then  // true
+        begin
+          result := square(ai[0][1]); // 11^2 = 121
+          goto flag_neq
+        end
+    else                              // equal
+    	  begin
+        	result := -1;
+        	goto flag_eq
+        end
+    ;
+
+    flag_eq : 
+    writeString('Equal values.'); 
+    return;
+
+   	flag_neq : 
+    writeString('result = '); 
+    writeInteger(result);
+   	return
+
+   	
+
+end.

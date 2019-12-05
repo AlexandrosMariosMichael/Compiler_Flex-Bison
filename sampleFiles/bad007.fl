@@ -1,0 +1,13 @@
+program foo ;
+
+
+procedure eval(prompt: string; f: intfunc; val: integer);
+	(* multiple statements not within 'begin-end' *)
+	writeString(prompt); 
+	writeString('('); writeInteger(val); writeString(')=');
+	writeInteger(f(val));
+	writeString('\n')
+
+
+begin
+end.

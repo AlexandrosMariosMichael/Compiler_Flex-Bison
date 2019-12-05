@@ -1,0 +1,13 @@
+program foo ;
+
+	type
+		string = array of not-a-valid-type;
+	
+begin
+
+	x := 'Hello world\n';
+	writeString(x)
+
+end.
+
+

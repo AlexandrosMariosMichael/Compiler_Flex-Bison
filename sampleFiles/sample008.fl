@@ -1,0 +1,42 @@
+program sample008;
+
+@defmacro str 'macro string -- '
+
+
+type it = integer;
+     string = array of char;
+     funcit = function (i1, i2: integer; r1: real; c4: char): char;
+
+var i,k : integer; 
+    c: char;
+
+begin
+  
+  k := 3;
+
+  for i := 1 to k+2 do 
+      begin
+        writeString('\n');
+        writeString(str);
+        writeInteger(i)        
+      end
+  ;
+  writeString('\n');
+
+
+  repeat 
+    begin 
+      i -:= 1;
+      writeInteger(i);
+      writeString('\n');
+
+      while k = -1 do   // false
+          writeString('Must not print.\n')
+
+    end
+  until i = 0
+  ;
+  
+  return i
+
+end.
